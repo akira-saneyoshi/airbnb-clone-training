@@ -1,6 +1,5 @@
 'use client';
 
-import { User } from '@prisma/client';
 import { signOut } from 'next-auth/react';
 
 import { AiOutlineMenu } from 'react-icons/ai'
@@ -9,9 +8,10 @@ import { useCallback, useState } from 'react';
 import MenuItem from './MenuItem';
 import useRegisterModal from '@/app/hooks/useRegisterModal';
 import useLoginModal from '@/app/hooks/useLoginModal';
+import { SafeUser } from '@/app/types';
 
 interface NavbarProps {
-  currentUser?: User | null;
+  currentUser?: SafeUser | null;
 }
 
 const UserMenu: React.FC<NavbarProps> = ({
@@ -65,7 +65,7 @@ const UserMenu: React.FC<NavbarProps> = ({
         >
           <AiOutlineMenu />
           <div className="hidden md:block">
-            <Avatar />
+            <Avatar src={currentUser?.image} />
           </div>
         </div>
       </div>
