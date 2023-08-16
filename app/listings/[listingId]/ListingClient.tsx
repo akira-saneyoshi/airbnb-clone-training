@@ -1,8 +1,7 @@
 'use client';
 
 import axios from 'axios';
-import { SafeListing, SafeUser } from '@/app/types';
-import { Reservation } from '@prisma/client';
+import { SafeListing, SafeReservation, SafeUser } from '@/app/types';
 import { Range } from "react-date-range";
 import { differenceInCalendarDays, differenceInDays, eachDayOfInterval } from 'date-fns';
 import { useRouter } from 'next/navigation';
@@ -23,9 +22,9 @@ const initialDateRange = {
 };
 
 interface ListingClientProps {
-  reservations?: Reservation[];
+  reservations?: SafeReservation[];
   listing: SafeListing & {
-    user: SafeUser;
+    user: SafeUser
   };
   currentUser?: SafeUser | null;
 }
