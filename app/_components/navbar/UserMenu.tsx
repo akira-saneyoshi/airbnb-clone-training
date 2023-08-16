@@ -11,6 +11,7 @@ import useLoginModal from '@/app/hooks/useLoginModal';
 import useRentModal from '@/app/hooks/useRentModal';
 import useRegisterModal from '@/app/hooks/useRegisterModal';
 import { SafeUser } from '@/app/types';
+import { useRouter } from 'next/navigation';
 
 
 interface NavbarProps {
@@ -20,6 +21,7 @@ interface NavbarProps {
 const UserMenu: React.FC<NavbarProps> = ({
   currentUser,
 }) => {
+  const router = useRouter();
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const rentModal = useRentModal();
@@ -102,6 +104,10 @@ const UserMenu: React.FC<NavbarProps> = ({
           <div className="flex flex-col cursor-pointer">
             {currentUser ? (
               <>
+                <MenuItem
+                  label="My trips"
+                  onClick={() => router.push('/trips')}
+                />
                 <MenuItem
                   label="My favorites"
                   onClick={() => {}}
