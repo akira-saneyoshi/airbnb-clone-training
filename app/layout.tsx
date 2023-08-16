@@ -10,6 +10,7 @@ import Navbar from './_components/navbar/Navbar';
 import RegisterModal from './_components/modals/RegisterModal';
 import LoginModal from './_components/modals/LoginModal';
 import RentModal from './_components/modals/RentModal';
+import SearchModal from './_components/modals/SearchModal';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,6 +31,7 @@ export default async function RootLayout({
       <body className={inter.className}>
         <ClientOnly>
           <ToasterProvider />
+          <SearchModal />
           <RentModal />
           <LoginModal />
           <RegisterModal />
